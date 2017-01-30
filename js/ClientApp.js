@@ -2,20 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import MyTitle from './MyTitle'
 
-var div = React.DOM.div
-
-
-var MyTitleFactory = React.createFactory(MyTitle)
-
 var MyFirstComponent = React.createClass({
   render: function () {
     return (
-      div(null,
-        MyTitleFactory({title: '🐕 dog', color: 'peru'}),
-        MyTitleFactory({title: '🐱 cat', color: 'mediumaquamarine'}),
-        MyTitleFactory({title: '💰 $$$', color: 'papayawhip'}),
-        MyTitleFactory({title: '🍕 pizza', color: 'rebeccapurple'})
-      )
+      <div>
+        <MyTitle title='🐴 horse' color='gainsboro' />
+        <MyTitle title='🐱 cat' color='peru' />
+        <MyTitle title='🐕 dog' color='lightsalmon' />
+        <MyTitle title='💰 $$$' color='peachpuff' />
+      </div>
     )
   }
 })
