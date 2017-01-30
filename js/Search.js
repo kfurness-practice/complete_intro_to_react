@@ -3,9 +3,9 @@ import React from 'react'
 const Search = React.createClass({
   render () {
     return (
-      <h1>Searh Page!!!!</h1>
+      <h1>Search Page!!!!</h1>
     )
   }
 })
 
-export default Searh
+export default Search
