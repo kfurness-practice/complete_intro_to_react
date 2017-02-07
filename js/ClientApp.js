@@ -15,8 +15,15 @@ const App = React.createClass({
         {/* Avoid using <HashRouter> if can, instead use BrowserRouter */}
         <div className='app'>
           <Match exactly pattern='/' component={Landing} />
-          <Match pattern='/search' component={Search} />
-          <Match pattern='/details/:id' component={Details} />
+          <Match
+            pattern='/search'
+            component={(props) => <Search shows={preload.shows} {...props} />}
+            />
+          <Match
+            pattern='/details/:id'
+            component={Details}
+            
+            />
         </div>
       </BrowserRouter>
     )

@@ -10,6 +10,7 @@ const Details = React.createClass({
   }
 })
 
+// STATELESS FUNCTIONAL COMPONENT
 // const Details = (props) => {
 //   return (
 //     <div>
