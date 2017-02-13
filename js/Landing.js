@@ -13,7 +13,7 @@ const Landing = React.createClass({
     dispatch: func
   },
   handleSearchTermChange (event) {
-    this.props.dispatch(setSearchTerm(event.target.data))
+    this.props.dispatch(setSearchTerm(event.target.value))
   },
   handleSearchSubmit (event) {
     event.preventDefault()
