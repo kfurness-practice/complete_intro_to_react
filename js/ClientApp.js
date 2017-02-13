@@ -1,6 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Match } from 'react-router'
+import { Provider } from 'react-redux'
+import store from './store'
 import '../public/normalize.css'
 import '../public/style.css'
 import Landing from './Landing'
@@ -12,21 +14,23 @@ const App = React.createClass({
   render () {
     return (
       <BrowserRouter>
-        {/* Avoid using <HashRouter> if can, instead use BrowserRouter */}
-        <div className='app'>
-          <Match exactly pattern='/' component={Landing} />
-          <Match
-            pattern='/search'
-            component={(props) => <Search shows={preload.shows} {...props} />}
+        <Provider store={store}>
+          {/* Avoid using <HashRouter> if can, instead use BrowserRouter */}
+          <div className='app'>
+            <Match exactly pattern='/' component={Landing} />
+            <Match
+              pattern='/search'
+              component={(props) => <Search shows={preload.shows} {...props} />}
+              />
+            <Match
+              pattern='/details/:id'
+              component={(props) => {
+                const shows = preload.shows.filter((show) => props.params.id === show.imdbID)
+                return <Details show={shows[0]} {...props} />
+              }}
             />
-          <Match
-            pattern='/details/:id'
-            component={(props) => {
-              const shows = preload.shows.filter((show) => props.params.id === show.imdbID)
-              return <Details show={shows[0]} {...props} />
-            }}
-          />
-        </div>
+          </div>
+        </Provider>
       </BrowserRouter>
     )
   }
